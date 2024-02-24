@@ -12,29 +12,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UrlController = exports.urlController = void 0;
 const prisma_client_1 = require("../../prisma/src/generated/prisma-client");
 const uuid_1 = require("uuid");
-// import userArgent from "useragent"
 const prisma = new prisma_client_1.PrismaClient();
 class UrlController {
     shortenUrl(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req);
             const { originalUrl } = req.body;
             try {
                 const existingUrl = yield prisma.url.findUnique({
                     where: { originalUrl },
                 });
                 if (existingUrl) {
-                    res.json({ shortUrl: existingUrl.shortUrl });
+                    res.json({ sucess: true, info: { existingUrl } });
                     return;
                 }
                 const shortCode = (0, uuid_1.v4)().substr(0, 7);
                 const createdUrl = yield prisma.url.create({
                     data: {
                         originalUrl,
+                        shortCode: shortCode,
                         shortUrl: `${req.protocol}://${req.get('host')}/api/urls/${shortCode}`,
                     },
                 });
-                res.json({ shortUrl: createdUrl.shortUrl });
+                console.log(createdUrl);
+                res.json({ sucess: true, info: createdUrl });
             }
             catch (error) {
                 console.error(error);
@@ -57,7 +57,6 @@ class UrlController {
                     where: { id: url.id },
                     data: { clicks: { increment: 1 } },
                 });
-                // console.log(res);
                 res.redirect(url.originalUrl);
             }
             catch (error) {

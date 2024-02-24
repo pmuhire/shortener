@@ -38,7 +38,16 @@ function main() {
             },
         }));
         app.use((0, helmet_1.default)());
-        app.use((0, cors_1.default)());
+        app.use((req, res, next) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', '*'); // Allow all HTTP methods
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+            next();
+        });
+        const options = {
+            origin: '*'
+        };
+        app.use((0, cors_1.default)(options));
         app.use(express_1.default.json());
         app.use('/api/users', user_routes_1.default);
         app.use('/api/urls', url_routes_1.default);
