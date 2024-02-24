@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { Url as PrismaUrl } from '../../prisma/src/generated/prisma-client';
+import { Url as PrismaUrl  } from "@prisma/client"
 
 export interface Url extends PrismaUrl {
   id: string;

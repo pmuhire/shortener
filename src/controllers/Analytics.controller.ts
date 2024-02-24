@@ -1,6 +1,6 @@
 // controllers/analyticsController.ts
 import express, { Request, Response } from 'express';
-import { PrismaClient } from '../../prisma/src/generated/prisma-client';
+import { PrismaClient } from '@prisma/client';
 import { mapAnalyticsToPrismaModel, Analytics } from '../models/Analtics.model';
 
 const prisma = new PrismaClient();

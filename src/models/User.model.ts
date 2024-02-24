@@ -1,6 +1,6 @@
 import Joi from 'joi';
-import { User as PrismaUser } from '../../prisma/src/generated/prisma-client';
-
+// import {  } from "../generated/client";
+import { User as PrismaUser  } from "@prisma/client"
 export interface User extends PrismaUser {
     id: string;
     email: string;

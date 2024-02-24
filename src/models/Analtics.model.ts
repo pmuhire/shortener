@@ -1,5 +1,4 @@
-import { Analytics as PrismaAnalytics } from "../../prisma/src/generated/prisma-client";
-
+import { Analytics as PrismaAnalytics } from "@prisma/client";
 export interface Analytics extends PrismaAnalytics {
   id: string;
   urlId: string;

@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { Log as PrismaLog } from '../../prisma/src/generated/prisma-client';
+import { Log as PrismaLog } from "@prisma/client";
 
 export interface Log extends PrismaLog {
   id: string;

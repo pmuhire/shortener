@@ -1,6 +1,6 @@
 // controllers/userController.ts
 import { Request, Response } from 'express';
-import { PrismaClient } from '../../prisma/src/generated/prisma-client';
+import { PrismaClient } from '@prisma/client';
 import { User, userValidationSchema, mapUserToCustomModel } from '../models/User.model';
 import { hashPassword, generateToken, comparePasswords } from '../utils/auth';
 

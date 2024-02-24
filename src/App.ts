@@ -1,5 +1,5 @@
 import express, { Response, Request, NextFunction } from 'express';
-import { PrismaClient } from '../prisma/src/generated/prisma-client';
+import { PrismaClient } from "@prisma/client"
 import morgan from 'morgan';
 import helmet from 'helmet';
 import router from './routes/user.routes';
