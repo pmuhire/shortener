@@ -2144,6 +2144,7 @@ export namespace Prisma {
     id: string | null
     originalUrl: string | null
     shortUrl: string | null
+    shortCode: string | null
     clicks: number | null
     createdAt: Date | null
     userId: string | null
@@ -2153,6 +2154,7 @@ export namespace Prisma {
     id: string | null
     originalUrl: string | null
     shortUrl: string | null
+    shortCode: string | null
     clicks: number | null
     createdAt: Date | null
     userId: string | null
@@ -2162,6 +2164,7 @@ export namespace Prisma {
     id: number
     originalUrl: number
     shortUrl: number
+    shortCode: number
     clicks: number
     createdAt: number
     userId: number
@@ -2181,6 +2184,7 @@ export namespace Prisma {
     id?: true
     originalUrl?: true
     shortUrl?: true
+    shortCode?: true
     clicks?: true
     createdAt?: true
     userId?: true
@@ -2190,6 +2194,7 @@ export namespace Prisma {
     id?: true
     originalUrl?: true
     shortUrl?: true
+    shortCode?: true
     clicks?: true
     createdAt?: true
     userId?: true
@@ -2199,6 +2204,7 @@ export namespace Prisma {
     id?: true
     originalUrl?: true
     shortUrl?: true
+    shortCode?: true
     clicks?: true
     createdAt?: true
     userId?: true
@@ -2295,6 +2301,7 @@ export namespace Prisma {
     id: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks: number
     createdAt: Date
     userId: string | null
@@ -2323,6 +2330,7 @@ export namespace Prisma {
     id?: boolean
     originalUrl?: boolean
     shortUrl?: boolean
+    shortCode?: boolean
     clicks?: boolean
     createdAt?: boolean
     userId?: boolean
@@ -2335,6 +2343,7 @@ export namespace Prisma {
     id?: boolean
     originalUrl?: boolean
     shortUrl?: boolean
+    shortCode?: boolean
     clicks?: boolean
     createdAt?: boolean
     userId?: boolean
@@ -2357,6 +2366,7 @@ export namespace Prisma {
       id: string
       originalUrl: string
       shortUrl: string
+      shortCode: string
       clicks: number
       createdAt: Date
       userId: string | null
@@ -2760,6 +2770,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Url", 'String'>
     readonly originalUrl: FieldRef<"Url", 'String'>
     readonly shortUrl: FieldRef<"Url", 'String'>
+    readonly shortCode: FieldRef<"Url", 'String'>
     readonly clicks: FieldRef<"Url", 'Int'>
     readonly createdAt: FieldRef<"Url", 'DateTime'>
     readonly userId: FieldRef<"Url", 'String'>
@@ -4933,6 +4944,7 @@ export namespace Prisma {
     id: 'id',
     originalUrl: 'originalUrl',
     shortUrl: 'shortUrl',
+    shortCode: 'shortCode',
     clicks: 'clicks',
     createdAt: 'createdAt',
     userId: 'userId'
@@ -5112,6 +5124,7 @@ export namespace Prisma {
     id?: UuidFilter<"Url"> | string
     originalUrl?: StringFilter<"Url"> | string
     shortUrl?: StringFilter<"Url"> | string
+    shortCode?: StringFilter<"Url"> | string
     clicks?: IntFilter<"Url"> | number
     createdAt?: DateTimeFilter<"Url"> | Date | string
     userId?: UuidNullableFilter<"Url"> | string | null
@@ -5123,6 +5136,7 @@ export namespace Prisma {
     id?: SortOrder
     originalUrl?: SortOrder
     shortUrl?: SortOrder
+    shortCode?: SortOrder
     clicks?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrderInput | SortOrder
@@ -5137,6 +5151,7 @@ export namespace Prisma {
     AND?: UrlWhereInput | UrlWhereInput[]
     OR?: UrlWhereInput[]
     NOT?: UrlWhereInput | UrlWhereInput[]
+    shortCode?: StringFilter<"Url"> | string
     clicks?: IntFilter<"Url"> | number
     createdAt?: DateTimeFilter<"Url"> | Date | string
     userId?: UuidNullableFilter<"Url"> | string | null
@@ -5148,6 +5163,7 @@ export namespace Prisma {
     id?: SortOrder
     originalUrl?: SortOrder
     shortUrl?: SortOrder
+    shortCode?: SortOrder
     clicks?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrderInput | SortOrder
@@ -5165,6 +5181,7 @@ export namespace Prisma {
     id?: UuidWithAggregatesFilter<"Url"> | string
     originalUrl?: StringWithAggregatesFilter<"Url"> | string
     shortUrl?: StringWithAggregatesFilter<"Url"> | string
+    shortCode?: StringWithAggregatesFilter<"Url"> | string
     clicks?: IntWithAggregatesFilter<"Url"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Url"> | Date | string
     userId?: UuidNullableWithAggregatesFilter<"Url"> | string | null
@@ -5336,6 +5353,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     analytics?: AnalyticsCreateNestedManyWithoutUrlInput
@@ -5346,6 +5364,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     userId?: string | null
@@ -5356,6 +5375,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     analytics?: AnalyticsUpdateManyWithoutUrlNestedInput
@@ -5366,6 +5386,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5376,6 +5397,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     userId?: string | null
@@ -5385,6 +5407,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5393,6 +5416,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5654,6 +5678,7 @@ export namespace Prisma {
     id?: SortOrder
     originalUrl?: SortOrder
     shortUrl?: SortOrder
+    shortCode?: SortOrder
     clicks?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
@@ -5667,6 +5692,7 @@ export namespace Prisma {
     id?: SortOrder
     originalUrl?: SortOrder
     shortUrl?: SortOrder
+    shortCode?: SortOrder
     clicks?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
@@ -5676,6 +5702,7 @@ export namespace Prisma {
     id?: SortOrder
     originalUrl?: SortOrder
     shortUrl?: SortOrder
+    shortCode?: SortOrder
     clicks?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
@@ -6137,6 +6164,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     analytics?: AnalyticsCreateNestedManyWithoutUrlInput
@@ -6146,6 +6174,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     analytics?: AnalyticsUncheckedCreateNestedManyWithoutUrlInput
@@ -6184,6 +6213,7 @@ export namespace Prisma {
     id?: UuidFilter<"Url"> | string
     originalUrl?: StringFilter<"Url"> | string
     shortUrl?: StringFilter<"Url"> | string
+    shortCode?: StringFilter<"Url"> | string
     clicks?: IntFilter<"Url"> | number
     createdAt?: DateTimeFilter<"Url"> | Date | string
     userId?: UuidNullableFilter<"Url"> | string | null
@@ -6295,6 +6325,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     user?: UserCreateNestedOneWithoutUrlsInput
@@ -6304,6 +6335,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
     userId?: string | null
@@ -6329,6 +6361,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutUrlsNestedInput
@@ -6338,6 +6371,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6347,6 +6381,7 @@ export namespace Prisma {
     id?: string
     originalUrl: string
     shortUrl: string
+    shortCode: string
     clicks?: number
     createdAt?: Date | string
   }
@@ -6355,6 +6390,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     analytics?: AnalyticsUpdateManyWithoutUrlNestedInput
@@ -6364,6 +6400,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     analytics?: AnalyticsUncheckedUpdateManyWithoutUrlNestedInput
@@ -6373,6 +6410,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     originalUrl?: StringFieldUpdateOperationsInput | string
     shortUrl?: StringFieldUpdateOperationsInput | string
+    shortCode?: StringFieldUpdateOperationsInput | string
     clicks?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

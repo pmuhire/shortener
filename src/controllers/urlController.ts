@@ -1,14 +1,11 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '../../prisma/src/generated/prisma-client';
 import { v4 as uuidv4 } from 'uuid';
-import { mapAnalyticsToPrismaModel,Analytics } from '../models/Analtics.model';
-// import userArgent from "useragent"
 
 const prisma = new PrismaClient();
 
 class UrlController {
     async shortenUrl(req: Request, res: Response): Promise<void> {
-        console.log(req)
         const { originalUrl } = req.body;
 
         try {
@@ -17,7 +14,7 @@ class UrlController {
             });
 
             if (existingUrl) {
-                res.json({ shortUrl: existingUrl.shortUrl });
+                res.json({ sucess: true, info: { existingUrl } });
                 return;
             }
 
@@ -26,11 +23,12 @@ class UrlController {
             const createdUrl = await prisma.url.create({
                 data: {
                     originalUrl,
+                    shortCode: shortCode,
                     shortUrl: `${req.protocol}://${req.get('host')}/api/urls/${shortCode}`,
                 },
             });
-
-            res.json({ shortUrl: createdUrl.shortUrl });
+            console.log(createdUrl);
+            res.json({ sucess: true, info: createdUrl });
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Internal server error' });
@@ -49,12 +47,11 @@ class UrlController {
                 res.status(404).json({ error: 'Short URL not found' });
                 return;
             }
-            
+
             await prisma.url.update({
                 where: { id: url.id },
                 data: { clicks: { increment: 1 } },
             });
-            // console.log(res);
             res.redirect(url.originalUrl);
         } catch (error) {
             console.error(error);

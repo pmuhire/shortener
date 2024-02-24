@@ -119,6 +119,7 @@ exports.Prisma.UrlScalarFieldEnum = {
   id: 'id',
   originalUrl: 'originalUrl',
   shortUrl: 'shortUrl',
+  shortCode: 'shortCode',
   clicks: 'clicks',
   createdAt: 'createdAt',
   userId: 'userId'

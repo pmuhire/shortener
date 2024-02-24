@@ -5,6 +5,7 @@ export interface Url extends PrismaUrl {
   id: string;
   originalUrl: string;
   shortUrl: string;
+  shortCode: string;
   clicks: number;
   createdAt: Date;
   userId: string;
@@ -13,6 +14,7 @@ export interface Url extends PrismaUrl {
 export const urlValidationSchema = Joi.object({
   originalUrl: Joi.string().uri().required(),
   shortUrl: Joi.string().required(),
+  shortCode: Joi.string().required(),
   clicks: Joi.number().integer().min(0).required(),
   createdAt: Joi.date().iso().required(),
   userId: Joi.string(),
