@@ -27,9 +27,15 @@ export async function main() {
         })
     );
     app.use(helmet());
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', '*'); // Allow all HTTP methods
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        next();
+    });
     const options: cors.CorsOptions = {
         origin: '*'
-      };
+    };
     app.use(cors(options));
     app.use(express.json());
     app.use('/api/users', router);
@@ -51,4 +57,4 @@ main()
         console.error(e);
         await prisma.$disconnect();
         process.exit(1);
-});
+    });
