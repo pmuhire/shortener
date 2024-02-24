@@ -27,7 +27,10 @@ export async function main() {
         })
     );
     app.use(helmet());
-    app.use(cors());
+    const options: cors.CorsOptions = {
+        origin: '*'
+      };
+    app.use(cors(options));
     app.use(express.json());
     app.use('/api/users', router);
     app.use('/api/urls', urlRouter);
