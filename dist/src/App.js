@@ -38,14 +38,10 @@ function main() {
             },
         }));
         app.use((0, helmet_1.default)());
-        app.use((req, res, next) => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Methods', '*'); // Allow all HTTP methods
-            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-            next();
-        });
         const options = {
-            origin: ['https://shortener-fe.vercel.app/', 'http://127.0.0.1:5173/', '*']
+            origin: ['https://shortener-fe.vercel.app/', 'http://127.0.0.1:5173/', '*'],
+            methods: ['POST', 'PUT', 'GET'],
+            allowedHeaders: ['Content-Type'],
         };
         app.use((0, cors_1.default)(options));
         app.use(express_1.default.json());

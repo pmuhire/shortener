@@ -27,14 +27,10 @@ export async function main() {
         })
     );
     app.use(helmet());
-    app.use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', '*'); // Allow all HTTP methods
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-        next();
-    });
     const options: cors.CorsOptions = {
-        origin: ['https://shortener-fe.vercel.app/','http://127.0.0.1:5173/','*']
+        origin: ['https://shortener-fe.vercel.app/', 'http://127.0.0.1:5173/', '*'],
+        methods: ['POST', 'PUT', 'GET'],
+        allowedHeaders: ['Content-Type'],
     };
     app.use(cors(options));
     app.use(express.json());
