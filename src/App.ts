@@ -34,7 +34,7 @@ export async function main() {
         next();
     });
     const options: cors.CorsOptions = {
-        origin: '*'
+        origin: ['https://shortener-fe.vercel.app/','http://127.0.0.1:5173/','*']
     };
     app.use(cors(options));
     app.use(express.json());

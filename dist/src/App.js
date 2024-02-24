@@ -45,7 +45,7 @@ function main() {
             next();
         });
         const options = {
-            origin: '*'
+            origin: ['https://shortener-fe.vercel.app/', 'http://127.0.0.1:5173/', '*']
         };
         app.use((0, cors_1.default)(options));
         app.use(express_1.default.json());
