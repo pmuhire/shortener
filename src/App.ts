@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import router from './routes/user.routes';
 import urlRouter from './routes/url.routes';
 import analRouter from './routes/analytics.routes';
+import cors from 'cors';
 
 export const prisma = new PrismaClient();
 
@@ -26,6 +27,7 @@ export async function main() {
         })
     );
     app.use(helmet());
+    app.use(cors());
     app.use(express.json());
     app.use('/api/users', router);
     app.use('/api/urls', urlRouter);
