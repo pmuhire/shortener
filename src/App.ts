@@ -1,11 +1,11 @@
-import express, { Response, Request, NextFunction } from 'express';
+import express, { Response, Request } from 'express';
 import { PrismaClient } from "@prisma/client"
 import morgan from 'morgan';
 import helmet from 'helmet';
 import router from './routes/user.routes';
 import urlRouter from './routes/url.routes';
 import analRouter from './routes/analytics.routes';
-import cors from 'cors';
+// import cors from 'cors';
 
 export const prisma = new PrismaClient();
 
@@ -27,12 +27,23 @@ export async function main() {
         })
     );
     app.use(helmet());
-    const options: cors.CorsOptions = {
-        origin: ['https://shortener-fe.vercel.app/', 'http://127.0.0.1:5173/', '*'],
-        methods: ['POST', 'PUT', 'GET'],
-        allowedHeaders: ['Content-Type'],
-    };
-    app.use(cors(options));
+    // const options: cors.CorsOptions = {
+    //     origin: ['https://shortener-fe.vercel.app/', 'http://localhost:5173/', '*'],
+    //     methods: ['POST', 'PUT', 'GET'],
+    //     allowedHeaders: ['Content-Type'],
+    // };
+    // app.use(cors(options));
+    app.use((req, res, next) => {
+        const allowedOrigins = ['https://shortener-fe.vercel.app/', 'http://localhost:5173']; // Add your origins to this array
+        const origin = req.headers.origin;
+        if (allowedOrigins.includes(origin)) {
+            res.header('Access-Control-Allow-Origin', origin);
+        }
+        // res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // Replace with your frontend URL
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        next();
+    });
     app.use(express.json());
     app.use('/api/users', router);
     app.use('/api/urls', urlRouter);

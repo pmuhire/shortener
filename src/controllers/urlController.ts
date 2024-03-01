@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 
 class UrlController {
     async shortenUrl(req: Request, res: Response): Promise<void> {
+        // console.log(req);
         const { originalUrl } = req.body;
 
         try {
@@ -14,7 +15,7 @@ class UrlController {
             });
 
             if (existingUrl) {
-                res.json({ sucess: true, info: { existingUrl } });
+                res.json({ sucess: true, info: { ...existingUrl } });
                 return;
             }
 
